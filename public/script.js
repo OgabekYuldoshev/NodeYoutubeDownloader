@@ -18,9 +18,9 @@
     }
 
     function DownloadVideo(){
-        window.open(`/download_video?URL=${URLinput.value}&name=${VideoName}`)
+        window.location = (`/download_video?URL=${URLinput.value}&name=${VideoName}`)
     }
 
     function DownloadAudio(){
-        window.open(`/download_audio?URL=${URLinput.value}&name=${VideoName}`)
+        window.location = (`/download_audio?URL=${URLinput.value}&name=${VideoName}`)
     }
