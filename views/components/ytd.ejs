@@ -1,0 +1,87 @@
+<div class="flex flex-col items-center justify-center">
+  <div>
+    <h1 class="text-2xl text-center py-5 font-medium">Youtube Downloader</h1>
+    <% if (error) { %>
+    <p class="text-center text-red-500"><%= error %></p>
+    <% } %>
+    <form
+      method="POST"
+      action="/"
+      class="flex md:flex-row flex-col items-center"
+    >
+      <input
+        name="LINK"
+        type="text"
+        class="focus:outline-none rounded border w-96 px-5 py-2"
+        placeholder="Link Here : https://youtu.be/Ris6sh2DOxg"
+      />
+      <button
+        type="submit"
+        class="
+          focus:outline-none
+          m-1
+          text-white
+          bg-blue-400
+          rounded
+          border
+          px-5
+          py-2
+        "
+      >
+        Convert
+      </button>
+    </form>
+  </div>
+  <% if (video !== null) { %>
+  <div>
+    <div>
+      <img
+        src="<%= video.img %> "
+        class="md:w-1/2 w-4/5 object-cover mx-auto"
+      />
+      <h1 class="text-center md:text-2xl text-xl font-bold py-5">
+        <%= video.name %>
+      </h1>
+    </div>
+    <div class="flex items-center gap-3 justify-center">
+      <form action="/video" method="get">
+        <input type="text" name="name" value="<%= video.name %> " hidden />
+        <input type="text" name="LINK" value="<%= video.url %> " hidden />
+
+        <button
+          type="submit"
+          class="
+            focus:outline-none
+            text-white
+            bg-blue-400
+            rounded
+            border
+            px-5
+            py-2
+          "
+        >
+          Download Video
+        </button>
+      </form>
+      <form action="/audio" method="get">
+        <input type="text" name="name" value="<%= video.name %> " hidden />
+        <input type="text" name="LINK" value="<%= video.url %> " hidden />
+        <button
+          type="submit"
+          class="
+            focus:outline-none
+            text-white
+            bg-blue-400
+            rounded
+            border
+            px-5
+            py-2
+          "
+        >
+          Download Audio
+        </button>
+      </form>
+    </div>
+  </div>
+  <% } %>
+</div>
